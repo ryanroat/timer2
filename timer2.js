@@ -5,7 +5,8 @@ let hrs;
 let mins;
 let secs;
 let clockText;
-const clock = document.querySelector('#display');
+const clock = document.querySelector('#count');
+const expiry = document.querySelector('#expiry');
 
 function displayTime(time) {
     hrs = Math.floor(time / 3600);
@@ -19,11 +20,27 @@ function displayTime(time) {
     document.title = clockText;
 }
 
+function displayExpiry(timestamp) {
+    let amPm = 'AM';
+    const end = new Date(timestamp);
+    let hour = end.getHours();
+    if (hour > 12) {
+        hour -= 12;
+        amPm = 'PM';
+    }
+
+    const minutes = end.getMinutes();
+    expiry.textContent = `done at ${hour}:${
+        minutes < 10 ? '0' : ''
+    }${minutes}  ${amPm}`;
+}
+
 function timer(seconds) {
     const now = Date.now();
     const then = now + seconds * 1000;
 
     displayTime(seconds);
+    displayExpiry(then);
 
     countdown = setInterval(() => {
         const timeLeft = Math.round((then - Date.now()) / 1000);

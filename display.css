@@ -3,12 +3,13 @@
   margin: 0;
 }
 
-#display {
+.display {
   height: 100vh;
   overflow: hidden;
   font-size: 10rem;
   color: red;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
