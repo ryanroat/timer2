@@ -36,6 +36,7 @@ function displayExpiry(timestamp) {
 }
 
 function timer(seconds) {
+    clearInterval(countdown);
     const now = Date.now();
     const then = now + seconds * 1000;
 
@@ -53,3 +54,11 @@ function timer(seconds) {
         displayTime(timeLeft);
     }, 1000);
 }
+
+document.customForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const mins = this.minutes.value;
+    // console.log(mins);
+    this.reset();
+    timer(mins * 60);
+});

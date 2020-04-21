@@ -13,3 +13,11 @@
   align-items: center;
   justify-content: center;
 }
+
+#count {
+  font-size: 15rem;
+}
+
+#expiry {
+  font-size: 8rem;
+}
