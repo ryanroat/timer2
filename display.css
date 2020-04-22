@@ -3,11 +3,26 @@
   margin: 0;
 }
 
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+body {
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 .display {
   height: 100vh;
   overflow: hidden;
   font-size: 10rem;
-  color: red;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,9 +30,13 @@
 }
 
 #count {
+  font-family: "Orbitron", sans-serif;
   font-size: 15rem;
+  color: #ccc;
 }
 
 #expiry {
+  font-family: "Orbitron", sans-serif;
   font-size: 8rem;
+  color: #888;
 }
