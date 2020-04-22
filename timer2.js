@@ -10,7 +10,7 @@ const expiry = document.querySelector('#expiry');
 
 function displayTime(time) {
     hrs = Math.floor(time / 3600);
-    mins = Math.floor(time / 60);
+    mins = Math.floor(time / 60) % 60;
     secs = time % 60;
 
     clockText = `${hrs}:${mins < 10 ? '0' : ''}${mins}:${
@@ -57,8 +57,10 @@ function timer(seconds) {
 
 document.customForm.addEventListener('submit', function(e) {
     e.preventDefault();
-    const mins = this.minutes.value;
-    // console.log(mins);
+    const newTime = this.time.value;
+    console.log(newTime);
     this.reset();
-    timer(mins * 60);
+    // if (newTime > 59) {
+    // }
+    timer(newTime * 60);
 });

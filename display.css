@@ -3,8 +3,6 @@
   margin: 0;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
-
 body {
   background: #373b44; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -30,13 +28,13 @@ body {
 }
 
 #count {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Iceberg", cursive;
   font-size: 15rem;
   color: #ccc;
 }
 
 #expiry {
-  font-family: "Orbitron", sans-serif;
+  font-family: "Iceland", cursive;
   font-size: 8rem;
   color: #888;
 }
