@@ -21,12 +21,17 @@ function displayTime(time) {
 }
 
 function displayExpiry(timestamp) {
-    let amPm = 'AM';
+    let amPm = 'PM';
     const end = new Date(timestamp);
     let hour = end.getHours();
     if (hour > 12) {
         hour -= 12;
-        amPm = 'PM';
+        // amPm = 'PM';
+    } else if (hour === 0) {
+        hour = 12;
+        amPm = 'AM';
+    } else if (hour < 12) {
+        amPm = 'AM';
     }
 
     const minutes = end.getMinutes();
