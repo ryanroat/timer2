@@ -5,10 +5,22 @@ let hrs;
 let mins;
 let secs;
 let clockText;
+let inputViz = true;
 const clock = document.querySelector('#count');
 const expiry = document.querySelector('#expiry');
 const timeInput = document.querySelector('#customTime');
 const timeInputForm = document.querySelector('.controls');
+
+function hideInput() {
+    timeInputForm.style.visibility = 'hidden';
+    inputViz = false;
+}
+
+function showInput() {
+    timeInputForm.style.visibility = 'visible'; // show input form
+    timeInput.focus(); // move focus to user input after showing
+    inputViz = true;
+}
 
 function displayTime(time) {
     hrs = Math.floor(time / 3600);
@@ -43,7 +55,7 @@ function displayExpiry(timestamp) {
 }
 
 function timer(seconds) {
-    timeInputForm.style.visibility = 'hidden'; // hide input form while running timer
+    hideInput(); // hide input form while running timer
     clearInterval(countdown);
     const now = Date.now();
     const then = now + seconds * 1000;
@@ -57,14 +69,21 @@ function timer(seconds) {
         if (timeLeft === 0) {
             displayTime(0);
             clearInterval(countdown);
-            timeInputForm.style.visibility = 'visible'; // show input form after running timer
-            timeInput.focus(); // move focus to user input after showing
+            showInput(); // show input form after running timer
             console.log('done');
             return;
         }
         displayTime(timeLeft);
     }, 1000);
 }
+
+document.addEventListener('click', () => {
+    if (inputViz) {
+        hideInput();
+    } else {
+        showInput();
+    }
+});
 
 document.customForm.addEventListener('submit', function(e) {
     e.preventDefault();
