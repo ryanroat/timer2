@@ -85,6 +85,10 @@ document.addEventListener('click', () => {
     }
 });
 
+document.addEventListener('keydown', key => {
+    console.log(key.code);
+});
+
 document.customForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const newTime = this.time.value;
