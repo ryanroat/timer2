@@ -22,6 +22,29 @@ function showInput() {
     inputViz = true;
 }
 
+function toggleInputViz() {
+    if (inputViz) {
+        hideInput();
+    } else {
+        showInput();
+    }
+    console.log(inputViz);
+}
+
+function processKey(pressed) {
+    console.log(pressed.code);
+}
+
+function detectUser(active) {
+    if (active) {
+        document.addEventListener('click', toggleInputViz);
+        document.addEventListener('keydown', processKey);
+    } else {
+        document.removeEventListener('click', toggleInputViz);
+        document.removeEventListener('keydown', processKey);
+    }
+}
+
 function displayTime(time) {
     hrs = Math.floor(time / 3600);
     mins = Math.floor(time / 60) % 60;
@@ -56,6 +79,7 @@ function displayExpiry(timestamp) {
 
 function timer(seconds) {
     hideInput(); // hide input form while running timer
+    detectUser(true); // check for mouse click or keyboard press(es) from user
     clearInterval(countdown);
     const now = Date.now();
     const then = now + seconds * 1000;
@@ -70,24 +94,13 @@ function timer(seconds) {
             displayTime(0);
             clearInterval(countdown);
             showInput(); // show input form after running timer
+            detectUser(false);
             console.log('done');
             return;
         }
         displayTime(timeLeft);
     }, 1000);
 }
-
-document.addEventListener('click', () => {
-    if (inputViz) {
-        hideInput();
-    } else {
-        showInput();
-    }
-});
-
-document.addEventListener('keydown', key => {
-    console.log(key.code);
-});
 
 document.customForm.addEventListener('submit', function(e) {
     e.preventDefault();
