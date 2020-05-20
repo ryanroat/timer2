@@ -8,6 +8,7 @@ let clockText;
 let inputViz = true;
 const clock = document.querySelector('#count');
 const expiry = document.querySelector('#expiry');
+const inputForm = document.querySelector('#custom');
 const timeInput = document.querySelector('#customTime');
 const timeInputForm = document.querySelector('.controls');
 
@@ -18,6 +19,7 @@ function hideInput() {
 
 function showInput() {
     timeInputForm.style.visibility = 'visible'; // show input form
+    inputForm.reset();
     timeInput.focus(); // move focus to user input after showing
     inputViz = true;
 }
@@ -114,10 +116,13 @@ function timer(seconds) {
 
 document.customForm.addEventListener('submit', function(e) {
     e.preventDefault();
+    // TODO: need input validation  --  simple try below
+
     const newTime = this.time.value;
-    console.log(newTime);
-    this.reset(); // clear user input
-    // if (newTime > 59) {
-    // }
-    timer(newTime * 60);
+
+    if (newTime != '') {
+        console.log(newTime);
+        this.reset(); // clear user input
+        timer(newTime * 60);
+    }
 });
