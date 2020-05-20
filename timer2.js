@@ -7,6 +7,7 @@ let secs;
 let clockText;
 const clock = document.querySelector('#count');
 const expiry = document.querySelector('#expiry');
+const timeInputForm = document.querySelector('.controls');
 
 function displayTime(time) {
     hrs = Math.floor(time / 3600);
@@ -64,7 +65,8 @@ document.customForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const newTime = this.time.value;
     console.log(newTime);
-    this.reset();
+    this.reset(); // clear user input
+    timeInputForm.style.visibility = 'hidden'; // hide input form while running timer
     // if (newTime > 59) {
     // }
     timer(newTime * 60);
