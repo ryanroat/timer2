@@ -7,6 +7,8 @@
 
 - make responsive
 
+- make time input hidden upon timer start; recall input with any keypress or mouse click
+
 - add/edit page title
 - edit message display / include or exclude finish time
 - do not display all zero time subsections
