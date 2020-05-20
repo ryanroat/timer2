@@ -32,13 +32,15 @@ function toggleInputViz() {
 }
 
 function processKey(pressed) {
-    pressed.preventDefault();
+    // pressed.preventDefault();
     key = pressed.code;
     if (key === 'Escape') {
         timer(0);
         console.log('quit now with [esc]');
-    } else {
+    } else if (!inputViz) {
         toggleInputViz();
+        console.log(pressed.code);
+    } else {
         console.log(pressed.code);
     }
 }
