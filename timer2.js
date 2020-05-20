@@ -32,7 +32,15 @@ function toggleInputViz() {
 }
 
 function processKey(pressed) {
-    console.log(pressed.code);
+    pressed.preventDefault();
+    key = pressed.code;
+    if (key === 'Escape') {
+        timer(0);
+        console.log('quit now with [esc]');
+    } else {
+        toggleInputViz();
+        console.log(pressed.code);
+    }
 }
 
 function detectUser(active) {
@@ -90,7 +98,7 @@ function timer(seconds) {
     countdown = setInterval(() => {
         const timeLeft = Math.round((then - Date.now()) / 1000);
         // are we done?
-        if (timeLeft === 0) {
+        if (seconds === 0 || timeLeft === 0) {
             displayTime(0);
             clearInterval(countdown);
             showInput(); // show input form after running timer
