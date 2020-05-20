@@ -7,6 +7,7 @@ let secs;
 let clockText;
 const clock = document.querySelector('#count');
 const expiry = document.querySelector('#expiry');
+const timeInput = document.querySelector('#customTime');
 const timeInputForm = document.querySelector('.controls');
 
 function displayTime(time) {
@@ -57,6 +58,7 @@ function timer(seconds) {
             displayTime(0);
             clearInterval(countdown);
             timeInputForm.style.visibility = 'visible'; // show input form after running timer
+            timeInput.focus(); // move focus to user input after showing
             console.log('done');
             return;
         }
