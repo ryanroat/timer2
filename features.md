@@ -2,10 +2,14 @@
 
 - 12 noon hour shows ending at AM rather than PM ?!?!
 
-
 ## potential feature additions
 
 - make responsive
+
+- make time input hidden upon timer start; recall input with any keypress or mouse click
+- add toggle check box to show/hide input while timer running
+
+-- go fullscreen while timer running? toggle?
 
 - add/edit page title
 - edit message display / include or exclude finish time

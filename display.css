@@ -21,7 +21,6 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-
 .display {
   height: 100vh;
   overflow: hidden;
@@ -42,12 +41,6 @@ body {
   font-family: "Iceland", cursive;
   font-size: 8rem;
   color: #888;
-}
-
-@media screen and (max-width: 990px) {
-  body {
-    background 
-  }
 }
 
 @media screen and (max-width: 990px) {

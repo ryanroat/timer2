@@ -5,8 +5,53 @@ let hrs;
 let mins;
 let secs;
 let clockText;
+let inputViz = true;
 const clock = document.querySelector('#count');
 const expiry = document.querySelector('#expiry');
+const timeInput = document.querySelector('#customTime');
+const timeInputForm = document.querySelector('.controls');
+
+function hideInput() {
+    timeInputForm.style.visibility = 'hidden';
+    inputViz = false;
+}
+
+function showInput() {
+    timeInputForm.style.visibility = 'visible'; // show input form
+    timeInput.focus(); // move focus to user input after showing
+    inputViz = true;
+}
+
+function toggleInputViz() {
+    if (inputViz) {
+        hideInput();
+    } else {
+        showInput();
+    }
+    console.log(inputViz);
+}
+
+function processKey(pressed) {
+    pressed.preventDefault();
+    key = pressed.code;
+    if (key === 'Escape') {
+        timer(0);
+        console.log('quit now with [esc]');
+    } else {
+        toggleInputViz();
+        console.log(pressed.code);
+    }
+}
+
+function detectUser(active) {
+    if (active) {
+        document.addEventListener('click', toggleInputViz);
+        document.addEventListener('keydown', processKey);
+    } else {
+        document.removeEventListener('click', toggleInputViz);
+        document.removeEventListener('keydown', processKey);
+    }
+}
 
 function displayTime(time) {
     hrs = Math.floor(time / 3600);
@@ -41,6 +86,8 @@ function displayExpiry(timestamp) {
 }
 
 function timer(seconds) {
+    hideInput(); // hide input form while running timer
+    detectUser(true); // check for mouse click or keyboard press(es) from user
     clearInterval(countdown);
     const now = Date.now();
     const then = now + seconds * 1000;
@@ -51,8 +98,11 @@ function timer(seconds) {
     countdown = setInterval(() => {
         const timeLeft = Math.round((then - Date.now()) / 1000);
         // are we done?
-        if (timeLeft < 0) {
+        if (seconds === 0 || timeLeft === 0) {
+            displayTime(0);
             clearInterval(countdown);
+            showInput(); // show input form after running timer
+            detectUser(false);
             console.log('done');
             return;
         }
@@ -64,7 +114,7 @@ document.customForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const newTime = this.time.value;
     console.log(newTime);
-    this.reset();
+    this.reset(); // clear user input
     // if (newTime > 59) {
     // }
     timer(newTime * 60);
