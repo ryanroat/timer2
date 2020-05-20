@@ -42,6 +42,7 @@ function displayExpiry(timestamp) {
 }
 
 function timer(seconds) {
+    timeInputForm.style.visibility = 'hidden'; // hide input form while running timer
     clearInterval(countdown);
     const now = Date.now();
     const then = now + seconds * 1000;
@@ -52,8 +53,10 @@ function timer(seconds) {
     countdown = setInterval(() => {
         const timeLeft = Math.round((then - Date.now()) / 1000);
         // are we done?
-        if (timeLeft < 0) {
+        if (timeLeft === 0) {
+            displayTime(0);
             clearInterval(countdown);
+            timeInputForm.style.visibility = 'visible'; // show input form after running timer
             console.log('done');
             return;
         }
@@ -66,7 +69,6 @@ document.customForm.addEventListener('submit', function(e) {
     const newTime = this.time.value;
     console.log(newTime);
     this.reset(); // clear user input
-    timeInputForm.style.visibility = 'hidden'; // hide input form while running timer
     // if (newTime > 59) {
     // }
     timer(newTime * 60);
