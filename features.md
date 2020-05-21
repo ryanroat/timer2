@@ -4,6 +4,8 @@
 
 ## potential feature additions
 
+- rotating hourglass icon
+
 - make responsive
 
 - make time input hidden upon timer start; recall input with any keypress or mouse click

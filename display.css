@@ -43,6 +43,24 @@ body {
   color: #888;
 }
 
+#hourglass {
+  font-size: 200px;
+  margin: 75px;
+}
+
+.rotate {
+  animation: rotation 1s linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
 @media screen and (max-width: 990px) {
   body {
     background: none;
