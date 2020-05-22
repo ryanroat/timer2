@@ -42,7 +42,7 @@ function processKey(pressed) {
         console.log('quit now with [esc]');
     } else if (key === 'AltLeft' || key === 'AltRight' || key === 'Tab') {
         console.log(`ignored ${key} - [${value}] key.`);
-    } else if (!isNaN(value)) {
+    } else if (!isNaN(value) || ascii === 110 || ascii === 190) {
         if (!inputViz) {
             toggleInputViz();
         }
