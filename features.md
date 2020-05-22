@@ -1,5 +1,7 @@
 # BUGS!
 
+initial countdown time display can show fractional / need to round
+
 ## potential feature additions
 
 - mouse click anywhere anytime should set input viz true and focus?

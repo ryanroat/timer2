@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // countdown time
 
 let countdown;
