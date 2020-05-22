@@ -34,17 +34,34 @@ function toggleInputViz() {
 }
 
 function processKey(pressed) {
-    // pressed.preventDefault();
-    key = pressed.code;
+    const key = pressed.code;
+    const value = pressed.key;
+    const ascii = pressed.keyCode;
     if (key === 'Escape') {
         timer(0);
         console.log('quit now with [esc]');
-    } else if (!inputViz) {
-        toggleInputViz();
-        console.log(pressed.code);
+    } else if (key === 'AltLeft' || key === 'AltRight' || key === 'Tab') {
+        console.log(`ignored ${key} - [${value}] key.`);
+    } else if (!isNaN(value)) {
+        if (!inputViz) {
+            toggleInputViz();
+        }
     } else {
-        console.log(pressed.code);
+        if ((ascii > 31 && ascii < 48) || (ascii > 57 && ascii < 127)) {
+            pressed.preventDefault();
+        }
+        toggleInputViz();
+        // console.log(isNaN(value));
+        console.log(`${key} - [${value}] pressed.`);
+        console.log(pressed);
     }
+
+    // if (!inputViz) {
+    //     toggleInputViz();
+    //     console.log(pressed.code);
+    // } else {
+    //     console.log(pressed.code);
+    // }
 }
 
 function detectUser(active) {
