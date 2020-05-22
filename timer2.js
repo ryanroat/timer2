@@ -47,12 +47,12 @@ function processKey(pressed) {
             toggleInputViz();
         }
     } else {
-        if ((ascii > 31 && ascii < 48) || (ascii > 57 && ascii < 127)) {
+        if ((ascii > 36 && ascii < 46) || (ascii > 57 && ascii < 127)) {
             pressed.preventDefault();
+            toggleInputViz();
         }
-        toggleInputViz();
         // console.log(isNaN(value));
-        console.log(`${key} - [${value}] pressed.`);
+        console.log(`${key} - [${value}] ${ascii} ascii pressed.`);
         console.log(pressed);
     }
 
