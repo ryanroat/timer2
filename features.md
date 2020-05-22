@@ -1,8 +1,8 @@
 # BUGS!
 
-- 12 noon hour shows ending at AM rather than PM ?!?!
-
 ## potential feature additions
+
+- mouse click anywhere anytime should set input viz true and focus?
 
 - make responsive
 
