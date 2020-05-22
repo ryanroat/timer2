@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 // countdown time
 
 let countdown;
@@ -5,7 +6,7 @@ let hrs;
 let mins;
 let secs;
 let clockText;
-let inputViz = true;
+let inputIsViz = true;
 const clock = document.querySelector('#count');
 const expiry = document.querySelector('#expiry');
 const inputForm = document.querySelector('#custom');
@@ -13,24 +14,25 @@ const timeInput = document.querySelector('#customTime');
 const timeInputForm = document.querySelector('.controls');
 
 function hideInput() {
-    timeInputForm.style.visibility = 'hidden';
-    inputViz = false;
+    inputForm.reset(); // clear form
+    timeInputForm.style.visibility = 'hidden'; // hide input form
+    inputIsViz = false; // track form visibily state
 }
 
 function showInput() {
     timeInputForm.style.visibility = 'visible'; // show input form
-    inputForm.reset();
+    inputForm.reset(); // clear form
     timeInput.focus(); // move focus to user input after showing
-    inputViz = true;
+    inputIsViz = true; // track form visibily state
 }
 
 function toggleInputViz() {
-    if (inputViz) {
+    if (inputIsViz) {
         hideInput();
     } else {
         showInput();
     }
-    console.log(inputViz);
+    // console.log(inputViz);
 }
 
 function processKey(pressed) {
@@ -42,8 +44,13 @@ function processKey(pressed) {
         console.log('quit now with [esc]');
     } else if (key === 'AltLeft' || key === 'AltRight' || key === 'Tab') {
         console.log(`ignored ${key} - [${value}] key.`);
-    } else if (!isNaN(value)) {
-        if (!inputViz) {
+    } else if (
+        !isNaN(value) ||
+        ascii === 110 ||
+        ascii === 190 ||
+        ascii === 13
+    ) {
+        if (!inputIsViz) {
             toggleInputViz();
         }
     } else {
