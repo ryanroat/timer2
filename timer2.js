@@ -1,3 +1,57 @@
+// require hourglass here?
+
+// hourglass script TODO: relocate to separate file later
+
+function displayHourglass() {
+    const hourglass = document.querySelector('#hourglass');
+    hourglass.classList.add('far');
+    hourglass.classList.add('fa-hourglass');
+}
+
+function runHourglass() {
+    const hourglass = document.querySelector('#hourglass');
+    hourglass.classList.remove('far');
+    hourglass.classList.remove('fa-hourglass');
+    hourglass.classList.add('fas');
+    hourglass.innerHTML = '&#xf251';
+
+    setTimeout(() => {
+        hourglass.innerHTML = '&#xf252';
+    }, 1000);
+    setTimeout(() => {
+        hourglass.innerHTML = '&#xf253';
+    }, 2000);
+    setTimeout(() => {
+        hourglass.classList.add('rotate');
+    }, 3000);
+    setTimeout(() => {
+        hourglass.classList.remove('rotate');
+    }, 4000);
+    runHourglass();
+
+    setInterval(() => {
+        runHourglass();
+    }, 4000);
+}
+
+function stopHourglass() {
+    const hourglass = document.querySelector('#hourglass');
+    hourglass.classList.remove('fas');
+    hourglass.innerHTML = '';
+    hourglass.classList.remove('fa-hourglass');
+    hourglass.classList.add('far');
+    hourglass.classList.add('fa-hourglass');
+}
+
+function hourglassSpin(spin) {
+    // const hourglass = document.querySelector('#hourglass');
+    if (spin) {
+        runHourglass();
+    } else {
+        stopHourglass();
+    }
+}
+
 // countdown time
 
 let countdown;
@@ -98,6 +152,9 @@ function timer(seconds) {
 
     displayTime(seconds);
     displayExpiry(then);
+    // run hourglass here
+    hourglassSpin(true);
+    console.log('got here');
 
     countdown = setInterval(() => {
         const timeLeft = Math.round((then - Date.now()) / 1000);
@@ -107,6 +164,8 @@ function timer(seconds) {
             clearInterval(countdown);
             showInput(); // show input form after running timer
             detectUser(false);
+            // stop hourglass here
+            hourglassSpin(false);
             console.log('done');
             return;
         }
@@ -126,3 +185,5 @@ document.customForm.addEventListener('submit', function(e) {
         timer(newTime * 60);
     }
 });
+
+displayHourglass();

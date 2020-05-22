@@ -31,6 +31,13 @@ body {
   justify-content: center;
 }
 
+.output {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+    align-items: center;
+}
+
 #count {
   font-family: "Iceberg", cursive;
   font-size: 15rem;
@@ -44,8 +51,14 @@ body {
 }
 
 #hourglass {
-  font-size: 200px;
-  margin: 75px;
+  font-size: 150px;
+  color: #ccc;
+  alig
+}
+
+#hourglass:hover {
+  color: #888;
+  transform: scale(1.1);
 }
 
 .rotate {
