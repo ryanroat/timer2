@@ -32,7 +32,6 @@ function toggleInputViz() {
     } else {
         showInput();
     }
-    // console.log(inputViz);
 }
 
 function processKey(pressed) {

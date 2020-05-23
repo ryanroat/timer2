@@ -4,6 +4,9 @@ initial countdown time display can show fractional / need to round
 
 ## potential feature additions
 
+- set initial countdown time to all zeros
+- set initial completion time to current running time HH:MM:SS
+
 - mouse click anywhere anytime should set input viz true and focus?
 
 - make responsive
