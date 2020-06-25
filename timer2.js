@@ -149,3 +149,16 @@ document.customForm.addEventListener('submit', function(e) {
         timer(newTime * 60);
     }
 });
+
+async function toggleFullscreen() {
+    if (fullscreen.checked) {
+        await document.documentElement.requestFullscreen();
+    } else {
+        await document.exitFullscreen();
+    }
+}
+if (document.fullscreenEnabled) {
+    document.querySelector('.fullscreen').style.visibility = 'visible';
+    const fullscreen = document.querySelector('#fullscreen');
+    fullscreen.addEventListener('click', toggleFullscreen);
+}
