@@ -31,6 +31,12 @@ body {
   justify-content: center;
 }
 
+.fullscreen {
+  color: #888;
+  font-family: "Iceland", cursive;
+  font-size: 1.75rem;
+}
+
 #count {
   font-family: "Iceberg", cursive;
   font-size: 15rem;

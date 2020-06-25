@@ -14,15 +14,23 @@
     <main class="display">
       <div class="controls">
         <form name="customForm" id="custom">
-          <input
-            autofocus
-            type="text"
-            name="time"
-            placeholder="Enter time"
-            id="customTime"
-          />
+          <div class="timeInput">
+            <input
+              autofocus
+              type="text"
+              name="time"
+              placeholder="Enter time"
+              id="customTime"
+            />
+          </div>
         </form>
       </div>
+      <!-- end controls -->
+      <div class="fullscreen">
+        <input type="checkbox" name="fullscreen" id="fullscreen" />
+        <label for="fullscreen">toggle fullscreen</label>
+      </div>
+
       <section id="count">00:00:00</section>
       <section id="expiry">12:34:56</section>
     </main>
