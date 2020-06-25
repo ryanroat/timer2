@@ -32,6 +32,7 @@ body {
 }
 
 .fullscreen {
+  visibility: hidden;
   color: #888;
   font-family: "Iceland", cursive;
   font-size: 1.75rem;
