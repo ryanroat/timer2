@@ -27,11 +27,15 @@ function showInput() {
 }
 
 function toggleInputViz() {
+    // const clickedElement = document.activeElement.tagName;
+    // console.log(clickedElement.includes('INPUT'));
+    // if (clickedElement !== 'INPUT') {
     if (inputIsViz) {
         hideInput();
     } else {
         showInput();
     }
+    // }
 }
 
 function processKey(pressed) {
@@ -112,8 +116,13 @@ function displayExpiry(timestamp) {
     }${minutes}  ${amPm}`;
 }
 
+function toggleFSFocus() {
+    document.querySelector('#fullscreen').focus();
+}
+
 function timer(seconds) {
     hideInput(); // hide input form while running timer
+    toggleFSFocus(); // move focus to fullscreen toggle checkbox
     detectUser(true); // check for mouse click or keyboard press(es) from user
     clearInterval(countdown);
     const now = Date.now();
@@ -158,7 +167,7 @@ async function toggleFullscreen() {
     }
 }
 if (document.fullscreenEnabled) {
-    document.querySelector('.fullscreen').style.visibility = 'visible';
+    document.querySelector('.selectFS').style.visibility = 'visible';
     const fullscreen = document.querySelector('#fullscreen');
     fullscreen.addEventListener('click', toggleFullscreen);
 }
