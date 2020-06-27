@@ -27,10 +27,13 @@ function showInput() {
 }
 
 function toggleInputViz() {
-    if (inputIsViz) {
-        hideInput();
-    } else {
-        showInput();
+    console.log(document.activeElement.tagName);
+    if (document.activeElement.tagName !== 'INPUT') {
+        if (inputIsViz) {
+            hideInput();
+        } else {
+            showInput();
+        }
     }
 }
 
