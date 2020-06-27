@@ -46,7 +46,7 @@ label#FSLabel {
   background-color: rgba(204, 204, 204, 0.1);
   padding: 0.5rem 0.75rem;
   border: 2px ridge rgba(136, 136, 136, 0.75);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 label#FSLabel:hover {
