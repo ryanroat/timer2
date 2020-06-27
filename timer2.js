@@ -27,14 +27,15 @@ function showInput() {
 }
 
 function toggleInputViz() {
-    console.log(document.activeElement.tagName);
-    if (document.activeElement.tagName !== 'INPUT') {
-        if (inputIsViz) {
-            hideInput();
-        } else {
-            showInput();
-        }
+    // const clickedElement = document.activeElement.tagName;
+    // console.log(clickedElement.includes('INPUT'));
+    // if (clickedElement !== 'INPUT') {
+    if (inputIsViz) {
+        hideInput();
+    } else {
+        showInput();
     }
+    // }
 }
 
 function processKey(pressed) {
@@ -166,7 +167,7 @@ async function toggleFullscreen() {
     }
 }
 if (document.fullscreenEnabled) {
-    document.querySelector('.fullscreen').style.visibility = 'visible';
+    document.querySelector('.selectFS').style.visibility = 'visible';
     const fullscreen = document.querySelector('#fullscreen');
     fullscreen.addEventListener('click', toggleFullscreen);
 }
