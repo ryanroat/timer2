@@ -120,8 +120,13 @@ function toggleFSFocus() {
     document.querySelector('#fullscreen').focus();
 }
 
+function showExpiry() {
+    document.querySelector('#expiry').style.visibility = 'visible';
+}
+
 function timer(seconds) {
     hideInput(); // hide input form while running timer
+    showExpiry();
     toggleFSFocus(); // move focus to fullscreen toggle checkbox
     detectUser(true); // check for mouse click or keyboard press(es) from user
     clearInterval(countdown);
