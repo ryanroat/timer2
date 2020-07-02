@@ -76,6 +76,7 @@ label#FSLabel:hover {
 
   #count {
     font-size: 8rem;
+    margin-top: 1.5rem;
   }
   #expiry {
     font-size: 4rem;
@@ -90,7 +91,7 @@ label#FSLabel:hover {
 
   #count {
     font-size: 4rem;
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
   }
   #expiry {
     font-size: 3rem;
