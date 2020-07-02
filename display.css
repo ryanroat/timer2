@@ -62,6 +62,7 @@ label#FSLabel:hover {
 }
 
 #expiry {
+  visibility: hidden;
   font-family: "Iceland", cursive;
   font-size: 8rem;
   color: #888;
