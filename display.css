@@ -68,10 +68,10 @@ label#FSLabel:hover {
 }
 
 @media screen and (max-width: 990px) {
-  body {
+  /* body {
     background: none;
     background-color: black;
-  }
+  } */
 
   #count {
     font-size: 8rem;
@@ -82,13 +82,14 @@ label#FSLabel:hover {
 }
 
 @media screen and (max-width: 600px) {
-  body {
+  /* body {
     background: none;
     background-color: #333;
-  }
+  } */
 
   #count {
     font-size: 4rem;
+    margin-top: 1.5rem;
   }
   #expiry {
     font-size: 3rem;
